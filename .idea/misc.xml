@@ -8,6 +8,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/frauddetection/pom.xml" />
+        <option value="$PROJECT_DIR$/spend-report/pom.xml" />
       </list>
     </option>
   </component>
