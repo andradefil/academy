@@ -16,9 +16,26 @@
 # limitations under the License.
 ################################################################################
 
-log4j.rootLogger=Warn, console
-log4j.logger.org.apache.flink.walkthrough.common.sink.AlertSink=info
-
-log4j.appender.console=org.apache.log4j.ConsoleAppender
-log4j.appender.console.layout=org.apache.log4j.PatternLayout
-log4j.appender.console.layout.ConversionPattern=%d{HH:mm:ss,SSS} %-5p %-60c %x - %m%n
+apiVersion: v1
+kind: Service
+metadata:
+  name: flink-job-cluster
+  labels:
+    app: flink
+    component: job-cluster
+spec:
+  ports:
+  - name: rpc
+    port: 6123
+  - name: blob
+    port: 6124
+  - name: query
+    port: 6125
+    nodePort: 30025
+  - name: ui
+    port: 8081
+    nodePort: 30081
+  type: NodePort
+  selector:
+    app: flink
+    component: job-cluster

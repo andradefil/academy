@@ -1,5 +1,3 @@
-#!/bin/sh
-
 ################################################################################
 #  Licensed to the Apache Software Foundation (ASF) under one
 #  or more contributor license agreements.  See the NOTICE file
@@ -18,26 +16,24 @@
 # limitations under the License.
 ################################################################################
 
-### If unspecified, the hostname of the container is taken as the JobManager address
-FLINK_HOME=${FLINK_HOME:-"/opt/flink"}
-
-JOB_CLUSTER="job-cluster"
-TASK_MANAGER="task-manager"
-
-CMD="$1"
-shift;
-
-if [ "${CMD}" == "--help" -o "${CMD}" == "-h" ]; then
-    echo "Usage: $(basename $0) (${JOB_CLUSTER}|${TASK_MANAGER})"
-    exit 0
-elif [ "${CMD}" == "${JOB_CLUSTER}" -o "${CMD}" == "${TASK_MANAGER}" ]; then
-    echo "Starting the ${CMD}"
-
-    if [ "${CMD}" == "${TASK_MANAGER}" ]; then
-        exec $FLINK_HOME/bin/taskmanager.sh start-foreground "$@"
-    else
-        exec $FLINK_HOME/bin/standalone-job.sh start-foreground "$@"
-    fi
-fi
-
-exec "$@"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flink-task-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flink
+      component: task-manager
+  template:
+    metadata:
+      labels:
+        app: flink
+        component: task-manager
+    spec:
+      containers:
+      - name: flink-task-manager
+        image: flink-job
+        imagePullPolicy: Never
+        args: ["task-manager", "-Djobmanager.rpc.address=flink-job-cluster"]

@@ -1,5 +1,3 @@
-#!/bin/sh
-
 ################################################################################
 #  Licensed to the Apache Software Foundation (ASF) under one
 #  or more contributor license agreements.  See the NOTICE file
@@ -18,26 +16,30 @@
 # limitations under the License.
 ################################################################################
 
-### If unspecified, the hostname of the container is taken as the JobManager address
-FLINK_HOME=${FLINK_HOME:-"/opt/flink"}
-
-JOB_CLUSTER="job-cluster"
-TASK_MANAGER="task-manager"
-
-CMD="$1"
-shift;
-
-if [ "${CMD}" == "--help" -o "${CMD}" == "-h" ]; then
-    echo "Usage: $(basename $0) (${JOB_CLUSTER}|${TASK_MANAGER})"
-    exit 0
-elif [ "${CMD}" == "${JOB_CLUSTER}" -o "${CMD}" == "${TASK_MANAGER}" ]; then
-    echo "Starting the ${CMD}"
-
-    if [ "${CMD}" == "${TASK_MANAGER}" ]; then
-        exec $FLINK_HOME/bin/taskmanager.sh start-foreground "$@"
-    else
-        exec $FLINK_HOME/bin/standalone-job.sh start-foreground "$@"
-    fi
-fi
-
-exec "$@"
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flink-job-cluster
+spec:
+  template:
+    metadata:
+      labels:
+        app: flink
+        component: job-cluster
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: flink-job-cluster
+        image: flink-job
+        imagePullPolicy: Never
+        args: ["job-cluster", "-Djobmanager.rpc.address=flink-job-cluster",
+               "-Dparallelism.default=5", "-Dblob.server.port=6124", "-Dqueryable-state.server.ports=6125"]
+        ports:
+        - containerPort: 6123
+          name: rpc
+        - containerPort: 6124
+          name: blob
+        - containerPort: 6125
+          name: query
+        - containerPort: 8081
+          name: ui
