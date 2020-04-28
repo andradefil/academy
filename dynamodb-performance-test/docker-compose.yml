@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - $HOME/.aws:/root/.aws:ro
+    links:
+      - dynamodb
+    tty: true
+    stdin_open: true
+
+  dynamodb:
+    image: ryanratcliff/dynamodb:latest
+    ports:
+      - 8000
