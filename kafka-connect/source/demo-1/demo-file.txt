@@ -1,0 +1,8 @@
+hi
+i'm creating a 
+real time application
+that is reading from a text file
+and send to kafka
+very awesome!
+some data was writen when offline
+and i'm trying to see if will be loaded
