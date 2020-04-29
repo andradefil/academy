@@ -1,4 +1,4 @@
-# Playground of udemy course about apache kafka connect
+# Playground course - Apache Kafka Series - Kafka Connect Hands-on Learning
 
 ## Lesson 1
 Goal: 
@@ -24,3 +24,12 @@ Learning:
 * Understand how to configure a connector in distributed mode
 * Get a first feel for Kafka Connect Standalone
 * Understand the schema configuration option
+
+## Lesson 3
+Goal: 
+* Gather data from Twitter in Kafka Connect Distributed Mode
+
+Twitter -> Kafka Connect -> Twitter topic
+
+Learning:
+* Gather real data using https://github.com/jcustenborder/kafka-connect-twitter
