@@ -1,7 +1,5 @@
-process.env.AWS_PROFILE = "dev"
-
 const AWS = require("aws-sdk");
-AWS.config.update({ region: 'sa-east-1' });
+AWS.config.update({ region: 'us-west-2' });
 
 const dynamodb = new AWS.DynamoDB();
 
