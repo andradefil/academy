@@ -15,15 +15,7 @@ function createTable() {
                 AttributeName: 'year_month_day_hh_mm_ss',
                 AttributeType: 'S'
             },
-            {
-                AttributeName: 'merchant_reference',
-                AttributeType: 'S'
-            },
-            {
-                AttributeName: 'card_id_merchant_reference',
-                AttributeType: 'S'
-            },
-            {
+           {
                 AttributeName: 'epoch_time',
                 AttributeType: 'N'
             },
@@ -40,7 +32,11 @@ function createTable() {
         ],
         TableName: global.tableName,
         GlobalSecondaryIndexes: [
+<<<<<<< HEAD
         ],
+=======
+       ],
+>>>>>>> 40105ef (Adds content)
         LocalSecondaryIndexes: [
             {
                 IndexName: 'customer_reference_epoch_time_index',
