@@ -32,7 +32,10 @@ function createItemBatch() {
                             "payment_id": "bfe26f5a-5f0d-42b7-8a09-a5d1cb968c0e",
                             "band": "VISA",
                             "payment_status": "AUTHORIZED",
+<<<<<<< HEAD
                             "total_ammount": 6000,
+=======
+>>>>>>> 6448581 (Adds content)
                             "ttl": 1603645200
                         }
                     }

@@ -7,7 +7,7 @@ function listItems() {
         TableName: global.tableName,
         KeyConditionExpression: "customer_reference = :customerReference",
         ExpressionAttributeValues: {
-            ":customerReference": "5665cb89-3392-4dd9-b1d1-9e6eb0fbd34b"
+            ":customerReference": "4A29C9E7-6A72-4905-9828-700DA63CC0DE"
         }
     }, (err, data)=>{
         if(err) {

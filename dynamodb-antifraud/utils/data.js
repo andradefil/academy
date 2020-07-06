@@ -21,7 +21,10 @@ function getRandomItem() {
         "customer_reference": "5665cb89-3392-4dd9-b1d1-9e6eb0fbd34b",
         "year_month_day_hh_mm_ss": yearMonthDay,
         "epoch_time": epochTime,
+<<<<<<< HEAD
         "payment_id": paymentId,
+=======
+>>>>>>> 6448581 (Adds content)
         "band": "VISA",
         "date": date.format("YYYY-MM-DDTHH:mm:ss"),
         "payment_status": paymentStatus,

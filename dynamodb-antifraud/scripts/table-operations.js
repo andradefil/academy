@@ -15,7 +15,11 @@ function createTable() {
                 AttributeName: 'year_month_day_hh_mm_ss',
                 AttributeType: 'S'
             },
+<<<<<<< HEAD
            {
+=======
+            {
+>>>>>>> 6448581 (Adds content)
                 AttributeName: 'epoch_time',
                 AttributeType: 'N'
             },
@@ -33,10 +37,18 @@ function createTable() {
         TableName: global.tableName,
         GlobalSecondaryIndexes: [
 <<<<<<< HEAD
+<<<<<<< HEAD
         ],
 =======
        ],
 >>>>>>> 40105ef (Adds content)
+=======
+       ],
+=======
+            
+        ],
+>>>>>>> 6448581 (Adds content)
+>>>>>>> 1c66760 (Adds content)
         LocalSecondaryIndexes: [
             {
                 IndexName: 'customer_reference_epoch_time_index',
