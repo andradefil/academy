@@ -1,4 +1,4 @@
-package selectionsort
+package io.killb.algorithms.selectionsort
 
 fun swap(arr: IntArray, i: Int, j: Int) {
     val temp = arr[i]

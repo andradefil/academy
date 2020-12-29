@@ -1,4 +1,4 @@
-package insertionsort
+package io.killb.algorithms.insertionsort
 
 @Suppress("DuplicatedCode")
 private fun insertionSort(arr: IntArray) {
