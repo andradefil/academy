@@ -13,4 +13,9 @@ class DoublyLinkedListTest {
         Assertions.assertEquals(4, list.head?.data)
         Assertions.assertNotEquals(2, list.head?.data)
     }
+
+    @Test
+    fun `should insert after node`() {
+
+    }
 }
