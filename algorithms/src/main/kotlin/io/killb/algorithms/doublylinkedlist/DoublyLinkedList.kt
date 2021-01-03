@@ -5,10 +5,21 @@ class DoublyLinkedList<T> {
 
     fun print() {
         var last = head
-        while(last != null) {
-            println("Item: ${last.data}")
-            last = last.next
+        var node = head
+
+        println("\n>>> forward direction")
+        while(node != null) {
+            print("${node.data},")
+            last = node
+            node = node.next
         }
+
+        println("\n<<< reverse direction")
+        while(last != null) {
+            print("${last.data},")
+            last = last.prev
+        }
+        println()
     }
 
     fun put(item: T): DoublyLinkedList<T> {
