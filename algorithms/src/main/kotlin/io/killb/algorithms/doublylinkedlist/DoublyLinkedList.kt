@@ -26,6 +26,15 @@ class DoublyLinkedList<T> {
         return this
     }
 
+    fun insertBefore(afterNode: Node<T>, item: T): DoublyLinkedList<T> {
+        val node = Node(item)
+        node.next = afterNode
+        node.prev = afterNode.prev
+        afterNode.prev?.next = afterNode
+        afterNode.prev = node
+        return this
+    }
+
     fun insertAfter(prevNode: Node<T>, data: T): DoublyLinkedList<T> {
         val newNode = Node(data)
         newNode.prev = prevNode
