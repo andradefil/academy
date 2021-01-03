@@ -3,15 +3,34 @@ package io.killb.algorithms.doublylinkedlist
 class DoublyLinkedList<T> {
     var head: Node<T>? = null
 
+    fun print() {
+        var last = head
+        while(last != null) {
+            println("Item: ${last.data}")
+            last = last.next
+        }
+    }
+
+    fun put(item: T): DoublyLinkedList<T> {
+        val node = Node(item)
+        var last = head
+        if (head === null) {
+            head = node
+            return this
+        }
+        while (last!!.next != null) {
+           last = last.next
+        }
+        last.next = node
+        node.prev = last
+        return this
+    }
+
     fun insertAfter(prevNode: Node<T>, data: T): DoublyLinkedList<T> {
         val newNode = Node(data)
-        // points to previous node
         newNode.prev = prevNode
-        // points to next node
         newNode.next = prevNode.next
-        // points next node back to new node
         newNode.next?.prev = newNode
-        // points next from previous node to new node
         prevNode.next = newNode
         return this
     }
