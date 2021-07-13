@@ -46,6 +46,22 @@
   )
 
 ;(my-map println ["daniel" "willian" "carl" "paul" "anna"])
-(my-map println ["daniel" false "carl" "paul" "anna"])
-(my-map println [])
-(my-map println nil)
+;(my-map println ["daniel" false "carl" "paul" "anna"])
+;(my-map println [])
+;(my-map println (range 100000))
+
+(println "\n\nMY MAP FOR RECUR")
+(defn my-map
+  [function sequence]
+  (let [first-element (first sequence)]
+    (if (not (nil? first-element))
+      (do
+        (function first-element)
+        (recur function (rest sequence)))))
+  )
+
+;(my-map println ["daniel" "willian" "carl" "paul" "anna"])
+;(my-map println ["daniel" false "carl" "paul" "anna"])
+;(my-map println [])
+(my-map println (range 100000))
+
