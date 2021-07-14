@@ -93,3 +93,66 @@
 (println (paid? {:price 50}))
 (println (paid? {:price 0}))
 
+(def my-line [[5 10] [10 20]])
+
+(def just-numbers [1 2 3 4])
+
+(def just-numbers "meu nome não é jhonny")
+
+(def client {:name "Super Co."
+             :location "Philadelphia"
+             :description "The worldwide leader in plastic tableware."})
+
+(let [name (:name client)
+      location (:location client)
+      _ (:description client)]
+  (println name "-" location))
+
+(let [{:keys [name location]} client]
+  (println name "-" location))
+
+
+(defn configure [val options]
+  (let [{:keys [debug verbose] :or {debug false, verbose false}} options]
+    (println "val =" val " debug =" debug " verbose =" verbose)))
+
+(configure 12 {:debug true})
+
+
+(def multiplayer-game-state
+  {:joe {:class "Ranger"
+         :weapon "Longbow"
+         :score 100}
+   :jane {:class "Knight"
+          :weapon "Greatsword"
+          :score 140}
+   :ryan {:class "Wizard"
+          :weapon "Mystic Staff"
+          :score 150}})
+
+(def transactions [{ :amount 39.2 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  { :amount 100 :is-test? true}
+                  ])
+
+(let [[first] transactions]
+  (println first))
+;= Joe is a Ranger wielding a Longbow
+
+;(let [[_ & remains :as total] just-numbers]
+;  (println "maoi" remains)
+;  (println "oima" total))
+;
+;(let [[first :as entire-vector] just-numbers]
+;  (println "first" first)
+;  (println "all" entire-vector))
+;
+;(let [[p1 p2] my-line
+;      [x1 y1] p1
+;      [x2 y2] p2]
+;  (println "Line from (" x1 "," y1 ") to (" x2 ", " y2 ")"))
