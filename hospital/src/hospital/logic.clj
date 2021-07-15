@@ -24,5 +24,15 @@
     (throw (ex-info "The queue is full" {:trying-to-add person})))
   )
 
+(defn arrived-at-with-pauses-and-log
+  [hospital department person]
+  (println "Trying to add person" person)
+  (if (fits-in-queue? hospital department)
+    (do (Thread/sleep (* (rand) 2000))
+        (println "Performing update for person" person)
+        (update hospital department conj person))
+    (throw (ex-info "The queue is full" {:trying-to-add person})))
+  )
+
 (defn was-attended-to [hospital department]
   (update hospital department pop))
