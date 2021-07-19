@@ -1,7 +1,8 @@
 (ns clojure-hospital-test.logic-test
   (:use clojure.pprint)
   (:require [clojure.test :refer :all])
-  (:require [clojure_hospital_test.logic :refer :all]))
+  (:require [clojure_hospital_test.logic :refer :all])
+  (:require [clojure_hospital_test.model :as h.model]))
 
 (deftest fits-in-queue?-test
   ;zero boundary
@@ -37,23 +38,23 @@
       ;(is (= (update {:g-queue [1 2]} :g-queue conj 5)
       ;       (arrived-at {:g-queue [1 2]}, :g-queue 5)))
 
-      ;(is (= ({:g-queue 1 2 3 4 5}
-      ;        (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5))))
+      (is (= ({:g-queue 1 2 3 4 5}
+              (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5))))
+
+      (is (= ({:g-queue 1 2 5}
+              (arrived-at {:g-queue [1 2]}, :g-queue 5))))
+
+      ;(is (= {:hospital {:g-queue [1 2 3 4 5]} :result :success}
+      ;       (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5)))
       ;
-      ;(is (= ({:g-queue 1 2 5}
-      ;        (arrived-at {:g-queue [1 2]}, :g-queue 5))))
-
-      (is (= {:hospital {:g-queue [1 2 3 4 5]} :result :success}
-             (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5)))
-
-      (is (= {:hospital {:g-queue [1 2 5]} :result :success}
-             (arrived-at {:g-queue [1 2]}, :g-queue 5)))
+      ;(is (= {:hospital {:g-queue [1 2 5]} :result :success}
+      ;       (arrived-at {:g-queue [1 2]}, :g-queue 5)))
 
       )
     (testing "That it won't add the new patient to the queue when the queue is full"
       ;classic terrible coding, the Exception is too generic
-      ;(is (thrown? clojure.lang.ExceptionInfo
-      ;     (arrived-at {:g-queue [1 58 96 74 32]}, :g-queue 47)))
+      (is (thrown? clojure.lang.ExceptionInfo
+           (arrived-at {:g-queue [1 58 96 74 32]}, :g-queue 47)))
 
       ;(is (nil?
       ;     (arrived-at {:g-queue [1 58 96 74 32]}, :g-queue 47)))
@@ -64,7 +65,29 @@
       ;      (catch clojure.lang.ExceptionInfo e
       ;        (= :impossible-to-add-patient-to-queue (:type (ex-data e))))))
 
-      (is (= {:hospital full-hospital, :result :failed-to-add-the-patient-to-the-queue}
-             (arrived-at full-hospital, :g-queue, 47)))
+      ;(is (= {:hospital full-hospital, :result :failed-to-add-the-patient-to-the-queue}
+      ;       (arrived-at full-hospital, :g-queue, 47)))
+
       ))
+  )
+
+(deftest transfer-test
+  (testing "That the transfer works if the patient will fit in the destination department"
+    (let [original-hospital {:g-queue [5], :x-ray []}]
+      (is (= {:g-queue [], :x-ray [5]}
+             (transfer original-hospital :g-queue :x-ray)))
+      )
+    (let [original-hospital {:g-queue (conj h.model/empty-queue 51 5),
+                             :x-ray (conj h.model/empty-queue 13)}]
+      (pprint (transfer original-hospital :g-queue :x-ray))
+      (is (= {:g-queue [5], :x-ray [13 51]}
+             (transfer original-hospital :g-queue :x-ray)))
+      )
+    )
+
+  (testing "That the transfer works if the patient won't fit in the destination department"
+    (let [full-hospital {:g-queue [5], :x-ray [1 3 2 1 2]}]
+      (is (thrown? clojure.lang.ExceptionInfo
+                   (transfer full-hospital :g-queue :x-ray))))
+    )
   )
