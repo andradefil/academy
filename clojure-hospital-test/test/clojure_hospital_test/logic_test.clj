@@ -99,4 +99,15 @@
     (is (thrown? clojure.lang.ExceptionInfo
                  (transfer nil :g-queue :x-ray)))
     )
+
+  (testing "Mandatory conditions"
+    (let [full-hospital {:g-queue (conj h.model/empty-queue "5"),
+                         :x-ray (conj h.model/empty-queue "1" "3" "2" "1")}]
+      (is (thrown? AssertionError
+                   (transfer full-hospital :random-dep :x-ray)))
+
+      (is (thrown? AssertionError
+                   (transfer full-hospital :x-ray :random-dep)))
+
+    ))
   )
