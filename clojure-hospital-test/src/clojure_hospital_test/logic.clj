@@ -28,8 +28,21 @@
           (< 5))
   )
 
-(defn arrived-at
+(defn- tries-to-add-to-the-queue
   [hospital department patient]
   (if (fits-in-queue? hospital department)
     (update hospital department conj patient))
   )
+
+(defn arrived-at
+  [hospital department patient]
+  (if-let [new-hospital (tries-to-add-to-the-queue hospital department patient)]
+    {:hospital new-hospital, :result :success}
+    {:hospital hospital, :result :failed-to-add-the-patient-to-the-queue}))
+
+;(defn arrived-at
+;  [hospital department patient]
+;  (if (fits-in-queue? hospital department)
+;    (update hospital department conj patient)
+;    (throw (ex-info "This department is full or doesn't exist" {:patient patient :type :impossible-to-add-patient-to-queue})))
+;  )
