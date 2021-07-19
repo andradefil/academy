@@ -1,20 +1,15 @@
 (ns ecommerce.core
   (:use [clojure.pprint])
-  (:require [ecommerce.db :as e.db]))
+  (:require [datomic.api :as d]
+            [ecommerce.db :as e.db]
+            [ecommerce.model :as e.model]))
 
 (def conn (e.db/open-connection))
 (pprint conn)
 
-; Products
-; id?
-; name String 1 ==> Expensive Computer
-; slug String 1 ==> /expensive_computer
-; price Float 1 ==> 35000.10
+(let [computer (e.model/new-product
+                 "Expensive computer"
+                 "/expensive-computer"
+                 35800.10)]
+  (d/transact conn [computer]))
 
-; entity_id attribute_name attribute_value
-; 15 name Expensive Computer
-; 15 slug /expensive_computer
-; 15 price 35000.10
-; 17 name Fancy Mobile
-; 17 slug /fancy_mobile
-; 17 price 8888.88
