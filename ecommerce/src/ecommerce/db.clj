@@ -44,3 +44,9 @@
     :db/cardinality :db.cardinality/one
     :db/doc         "The price of a Product with monetary precision"}])
 
+; db is a snapshot of Datomic in a particular point in the time
+(defn all-products [db]
+  (d/q '[:find ?entity_id
+         :where [?entity_id :product/name]] db))
+
+
