@@ -9,7 +9,7 @@
     )
   ;limit boundary
   (testing "That it doesn't fit a new patient when the queue is full"
-    (is (not (fits-in-queue? {:g-queue [1 2 3 4 5]} :g-queue)))
+    (is (not (fits-in-queue? {:g-queue [1 5 2 4 3]} :g-queue)))
     )
   ;one above limit boundary
   (testing "That it doesn't fit a new patient when the queue is above limit"
@@ -23,4 +23,30 @@
 
   (testing "That is doesn't fit in the queue when the department doesn't exist"
     (is (not (fits-in-queue? {:g-queue [1 2 3 4 5]} :x-ray))))
+  )
+
+(deftest arrived-at-test
+  (testing "That the new patient will be added to the department if the queue is not full"
+    ;bad implementation, only tests if what you wrote here is the same that
+    ;you wrote in the function
+    ;(is (= (update {:g-queue [1 2 3 4]} :g-queue conj 5)
+    ;       (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5)))
+    ;
+    ;(is (= (update {:g-queue [1 2]} :g-queue conj 5)
+    ;       (arrived-at {:g-queue [1 2]}, :g-queue 5)))
+
+    (is (= ({:g-queue 1 2 3 4 5}
+            (arrived-at {:g-queue [1 2 3 4]}, :g-queue 5))))
+
+    (is (= ({:g-queue 1 2 5}
+            (arrived-at {:g-queue [1 2]}, :g-queue 5))))
+    )
+  (testing "That it won't add the new patient to the queue when the queue is full"
+    ;classic terrible coding, the Exception is too generic
+    ;(is (thrown? clojure.lang.ExceptionInfo
+    ;     (arrived-at {:g-queue [1 58 96 74 32]}, :g-queue 47)))
+
+    ;(is (nil?
+    ;     (arrived-at {:g-queue [1 58 96 74 32]}, :g-queue 47)))
+    )
   )

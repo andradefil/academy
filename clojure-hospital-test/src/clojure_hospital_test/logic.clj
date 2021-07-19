@@ -27,3 +27,9 @@
           count
           (< 5))
   )
+
+(defn arrived-at
+  [hospital department patient]
+  (if (fits-in-queue? hospital department)
+    (update hospital department conj patient))
+  )
