@@ -94,4 +94,9 @@
       (is (thrown? clojure.lang.ExceptionInfo
                    (transfer full-hospital :g-queue :x-ray))))
     )
+
+  (testing "Cannot invoke transfer without a hospital"
+    (is (thrown? clojure.lang.ExceptionInfo
+                 (transfer nil :g-queue :x-ray)))
+    )
   )
