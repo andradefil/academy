@@ -2,4 +2,6 @@
 
 (defn new-product
   [name slug price]
-  {:name name :slug slug :price price})
+  {:product/name name
+   :product/slug slug
+   :product/price price})
