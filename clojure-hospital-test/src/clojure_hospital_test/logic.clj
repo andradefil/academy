@@ -1,4 +1,6 @@
-(ns clojure_hospital_test.logic)
+(ns clojure_hospital_test.logic
+  (:require [clojure_hospital_test.model :as h.model])
+  (:require [schema.core :as s]))
 
 ; normal threading problem when the department is null
 ;(defn fits-in-queue?
@@ -47,18 +49,23 @@
     (throw (ex-info "This department is full or doesn't exist" {:patient patient })))
   )
 
-(defn was-attended-to [hospital department]
+(s/defn was-attended-to :- h.model/Hospital
+  [hospital :- h.model/Hospital,
+   department :- s/Keyword]
   (update hospital department pop))
 
 
-(defn next-patient
-  [hospital department]
+(s/defn next-patient :- h.model/PatientID
+  [hospital :- h.model/Hospital,
+   department :- s/Keyword]
   (-> hospital
       department
       peek))
 
-(defn transfer
-  [hospital from to]
+(s/defn transfer :- h.model/Hospital
+  [hospital :- h.model/Hospital,
+   from :- s/Keyword
+   to :- s/Keyword]
   (let [patient (next-patient hospital from)]
     (-> hospital
         (was-attended-to from)

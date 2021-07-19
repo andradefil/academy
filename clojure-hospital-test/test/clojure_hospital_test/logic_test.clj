@@ -2,7 +2,10 @@
   (:use clojure.pprint)
   (:require [clojure.test :refer :all])
   (:require [clojure_hospital_test.logic :refer :all])
-  (:require [clojure_hospital_test.model :as h.model]))
+  (:require [clojure_hospital_test.model :as h.model])
+  (:require [schema.core :as s]))
+
+(s/set-fn-validation! true)
 
 (deftest fits-in-queue?-test
   ;zero boundary
@@ -73,20 +76,21 @@
 
 (deftest transfer-test
   (testing "That the transfer works if the patient will fit in the destination department"
-    (let [original-hospital {:g-queue [5], :x-ray []}]
-      (is (= {:g-queue [], :x-ray [5]}
+    (let [original-hospital {:g-queue (conj h.model/empty-queue "5"), :x-ray h.model/empty-queue}]
+      (is (= {:g-queue [], :x-ray ["5"]}
              (transfer original-hospital :g-queue :x-ray)))
       )
-    (let [original-hospital {:g-queue (conj h.model/empty-queue 51 5),
-                             :x-ray (conj h.model/empty-queue 13)}]
+    (let [original-hospital {:g-queue (conj h.model/empty-queue "51" "5"),
+                             :x-ray (conj h.model/empty-queue "13")}]
       (pprint (transfer original-hospital :g-queue :x-ray))
-      (is (= {:g-queue [5], :x-ray [13 51]}
+      (is (= {:g-queue ["5"], :x-ray ["13" "51"]}
              (transfer original-hospital :g-queue :x-ray)))
       )
     )
 
   (testing "That the transfer works if the patient won't fit in the destination department"
-    (let [full-hospital {:g-queue [5], :x-ray [1 3 2 1 2]}]
+    (let [full-hospital {:g-queue (conj h.model/empty-queue "5"),
+                         :x-ray (conj h.model/empty-queue "1" "3" "2" "1" "2")}]
       (is (thrown? clojure.lang.ExceptionInfo
                    (transfer full-hospital :g-queue :x-ray))))
     )
