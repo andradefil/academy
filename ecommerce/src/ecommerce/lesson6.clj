@@ -19,4 +19,23 @@
 ; should be 1
 (pprint (count (e.db/all-prices (d/db conn) 15000)))
 
+(d/transact conn [[:db/add 17592186045426 :product/keyword "desktop"]
+               [:db/add 17592186045426 :product/keyword "ubuntu"]
+               [:db/add 17592186045426 :product/keyword "computer"]])
+
+(pprint (e.db/all-products (d/db conn)))
+
+(d/transact conn [[:db/retract 17592186045426 :product/keyword "ubuntu"]])
+
+(pprint (e.db/all-products (d/db conn)))
+
+(d/transact conn [[:db/add 17592186045425 :product/keyword "mobile phone"]
+                  [:db/add 17592186045426 :product/keyword "mobile phone"]])
+
+(pprint (e.db/all-products (d/db conn)))
+
+(e.db/all-products-by-keyword (d/db conn) "mobile phone")
+(e.db/all-products-by-keyword (d/db conn) "ubuntu")
+(e.db/all-products-by-keyword (d/db conn) "desktop")
+
 ;(e.db/delete-database)

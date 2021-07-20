@@ -42,7 +42,10 @@
    {:db/ident       :product/price
     :db/valueType   :db.type/bigdec
     :db/cardinality :db.cardinality/one
-    :db/doc         "The price of a Product with monetary precision"}])
+    :db/doc         "The price of a Product with monetary precision"}
+   {:db/ident       :product/keyword
+    :db/valueType   :db.type/string
+    :db/cardinality :db.cardinality/many}])
 
 ; db is a snapshot of Datomic in a particular point in the time
 ; explicitly pulling attributes
@@ -96,3 +99,9 @@
 ; (> ?items-in-stock 100)     ===> 10
 ; (> ?price 12000)            ===> 10(5000)
 ; 2nd case 10,000 + 10 = 10,010 iterations
+
+(defn all-products-by-keyword [db selected-keyword]
+  (d/q '[:find (pull ?product [*])
+          :in $ ?keyword
+          :where [?product :product/keyword ?keyword]]
+        db selected-keyword))
