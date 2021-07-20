@@ -84,6 +84,15 @@
          :in $ ?min-price
          :keys product/price product/name
          :where [?product :product/price ?any-price]
+                [(> ?any-price ?min-price)]
                 [?product :product/name ?any-name]
-                [(> ?any-price ?min-price)]] db price-point))
+         ] db price-point))
 
+; Say I have a catalog with 10.000 products
+; (> ?price 12000)            ===> 5000
+; (> ?items-in-stock 100)     ===> 5000(10)
+; 1st case 10,000 + 5,000 iterations = 15,000 iterations
+
+; (> ?items-in-stock 100)     ===> 10
+; (> ?price 12000)            ===> 10(5000)
+; 2nd case 10,000 + 10 = 10,010 iterations
