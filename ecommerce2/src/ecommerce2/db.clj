@@ -177,3 +177,19 @@
   (d/q '[:find (pull ?category [:category/name {:product/_category [:product/name :product/slug]}])
          :in $ ?name
          :where [?category :category/name ?name]] db category-name))
+
+; #{0.1 10 30 8000 17}
+; we can define with as key for the bucket to get aggregation of values duplications
+(defn catalog-summary [db]
+  (d/q '[:find (min ?price) (max ?price) (count ?price)
+         :keys min-price max-price quantity
+         :with ?product
+         :where [?product :product/price ?price]] db))
+
+(defn catalog-summary-by-category [db]
+  (d/q '[:find ?category-name (min ?price) (max ?price) (count ?price)
+         :keys category min-price max-price quantity
+         :with ?product
+         :where [?product :product/price ?price]
+                [?product :product/category ?category]
+                [?category :category/name ?category-name]] db))
