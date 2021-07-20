@@ -79,9 +79,11 @@
          :where [_ :product/slug ?any-slug]] db))
 
 ; explicitly formatting our output
-(defn all-prices [db]
+(defn all-prices [db price-point]
   (d/q '[:find ?any-price ?any-name
+         :in $ ?min-price
          :keys product/price product/name
          :where [?product :product/price ?any-price]
-                [?product :product/name ?any-name]] db))
+                [?product :product/name ?any-name]
+                [(> ?any-price ?min-price)]] db price-point))
 
