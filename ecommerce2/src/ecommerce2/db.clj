@@ -4,12 +4,12 @@
 
 (def db-uri "datomic:dev://localhost:4334/ecommerce")
 
-(defn open-connection
+(defn open-connection!
   []
   (d/create-database db-uri)
   (d/connect db-uri))
 
-(defn delete-database
+(defn delete-database!
   []
   (d/delete-database db-uri))
 
@@ -31,7 +31,9 @@
 ;          #datom[0 13 74 13194139534312 true]],
 
 (def schema
-  [{:db/ident       :product/name
+  [
+   ;Products
+   {:db/ident       :product/name
     :db/valueType   :db.type/string
     :db/cardinality :db.cardinality/one
     :db/doc         "The name of the Product in the Catalog"}
@@ -49,7 +51,19 @@
    {:db/ident :product/id
     :db/valueType :db.type/uuid
     :db/cardinality :db.cardinality/one
-    :db/unique :db.unique/identity}])
+    :db/unique :db.unique/identity}
+   {:db/ident :product/category
+    :db/valueType :db.type/ref
+    :db/cardinality :db.cardinality/one}
+   ;Categories
+   {:db/ident :category/name
+    :db/valueType :db.type/string
+    :db/cardinality :db.cardinality/one}
+   {:db/ident :category/id
+    :db/valueType :db.type/uuid
+    :db/cardinality :db.cardinality/one
+    :db/unique :db.unique/identity}
+   ])
 
 ; db is a snapshot of Datomic in a particular point in the time
 ; explicitly pulling attributes
@@ -112,3 +126,28 @@
 
 (defn product-by-id [db product-id]
   (d/pull db '[*] [:product/id product-id]))
+
+(defn all-categories [db]
+  (d/q '[:find (pull ?category [*])
+         :where [?category :category/id]] db))
+
+(defn reduce-to-categorized-product-list [catalog-items category]
+ (reduce (fn [jobs product]
+            (conj jobs [:db/add
+                        [:product/id (:product/id product)]
+                        :product/category
+                        [:category/id (:category/id category)]]))
+          []
+          catalog-items
+   ))
+
+(defn assign-category! [conn catalog-items category]
+  (let [jobs (reduce-to-categorized-product-list catalog-items category)]
+    (d/transact conn jobs)))
+
+(defn create-products! [conn products]
+  (d/transact conn products))
+
+; Different business logic applies for different entities (i.e schema validation)
+(defn create-categories! [conn categories]
+  (d/transact conn categories))

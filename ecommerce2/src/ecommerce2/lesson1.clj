@@ -25,4 +25,4 @@
 (pprint (first-product :product/name))
 
 
-;(e.db/delete-database)
+(e.db/delete-database!)

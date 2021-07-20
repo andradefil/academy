@@ -30,4 +30,4 @@
 (def products (e.db/all-products (d/db conn)))
 (pprint products)
 
-;(e.db/delete-database)
+(e.db/delete-database!)
