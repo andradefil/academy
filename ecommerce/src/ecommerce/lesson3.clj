@@ -15,4 +15,14 @@
 
 (pprint (e.db/all-products (d/db conn)))
 
+(pprint (e.db/product-by-fixed-slug (d/db conn)))
+
+(pprint (e.db/product-by-slug (d/db conn) "/fancy-mobile"))
+
+(pprint (e.db/all-slugs (d/db conn)))
+
+(pprint (count (e.db/all-prices (d/db conn))))
+
+(pprint (e.db/all-prices (d/db conn)))
+
 (e.db/delete-database)

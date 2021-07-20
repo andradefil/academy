@@ -49,4 +49,31 @@
   (d/q '[:find ?entity_id
          :where [?entity_id :product/name]] db))
 
+; String query = "some sql code"
+; db.query(query)
+; Is typing our variables in their names useful?
+; this is not recommended as it exposes implementation needlessly
+(def product-by-fixed-slug-q '[:find ?entity_id
+                         :where [?entity_id :product/slug "/expensive-computer"]] )
+
+(defn product-by-fixed-slug [db]
+  (d/q product-by-fixed-slug-q db))
+
+; String query = "select * from table where slug = :slug"
+; db.query(query, {:slug "/some-slug"})
+(defn product-by-slug [db slug]
+  (d/q '[:find ?e
+         :in $ ?search-slug
+         :where [?e :product/slug ?search-slug]] db slug))
+
+; ?entity_id, ?any_id ==> ?product ==> ?p
+; since it is not used ...
+(defn all-slugs [db]
+  (d/q '[:find ?any-slug
+         :where [_ :product/slug ?any-slug]] db))
+
+(defn all-prices [db]
+  (d/q '[:find ?any-price ?any-name
+         :where [?product :product/price ?any-price]
+                [?product :product/name ?any-name]] db))
 
