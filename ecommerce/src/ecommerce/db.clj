@@ -45,8 +45,14 @@
     :db/doc         "The price of a Product with monetary precision"}])
 
 ; db is a snapshot of Datomic in a particular point in the time
+; explicitly pulling attributes
+;(defn all-products [db]
+;  (d/q '[:find (pull ?entity_id [*])
+;         :where [?entity_id :product/name]] db))
+
+; get all attributes
 (defn all-products [db]
-  (d/q '[:find ?entity_id
+  (d/q '[:find (pull ?entity_id [*])
          :where [?entity_id :product/name]] db))
 
 ; String query = "some sql code"
@@ -72,8 +78,10 @@
   (d/q '[:find ?any-slug
          :where [_ :product/slug ?any-slug]] db))
 
+; explicitly formatting our output
 (defn all-prices [db]
   (d/q '[:find ?any-price ?any-name
+         :keys product/price product/name
          :where [?product :product/price ?any-price]
                 [?product :product/name ?any-name]] db))
 
