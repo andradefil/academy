@@ -154,7 +154,7 @@
 
 (defn create-products!
   ([conn products ip]
-   (let [tx-ip [:db/add "datomic.txt" :tx-data/ip ip]]
+   (let [tx-ip [:db/add "datomic.tx" :tx-data/ip ip]]
      (d/transact conn (conj products tx-ip))))
   ([conn products]
    (d/transact conn products)))
@@ -162,7 +162,7 @@
 ; Different business logic applies for different entities (i.e schema validation)
 (defn create-categories!
   ([conn categories ip]
-   (let [tx-ip [:db/add "datomic.txt" :tx-data/ip ip]]
+   (let [tx-ip [:db/add "datomic.tx" :tx-data/ip ip]]
      (d/transact conn (conj categories tx-ip))))
   ([conn categories]
    (d/transact conn categories)))
@@ -222,4 +222,10 @@
          :where [(q '[:find (max ?price)
                       :where [_ :product/price ?price]] $) [[?max-price]]]
          [?product :product/price ?max-price]] db))
+
+(defn products-by-host-ip [db host-ip]
+  (d/q '[:find (pull ?product [*])
+         :in $ ?ip
+         :where [?transaction :tx-data/ip ?ip]
+                [?product :product/id _ ?transaction]] db host-ip))
 

@@ -19,7 +19,7 @@
 (def chess-board (e.model/new-product "Chess Board" "/chess-board" 30M))
 
 (pprint @(e.db/create-products!
-           conn [computer fancy-mobile cheap-mobile calculator chess-board]))
+           conn [computer fancy-mobile cheap-mobile calculator chess-board] "192.168.201.11"))
 (pprint @(e.db/assign-category! conn [computer, fancy-mobile, cheap-mobile] electronics))
 (pprint @(e.db/assign-category! conn [chess-board] sports))
 
@@ -31,7 +31,7 @@
                   :product/id       (e.model/uuid)
                   :product/category {:category/name "Clothing"
                                      :category/id   (e.model/uuid)}}
-                 ]))
+                 ] "214.231.112.21"))
 
 ; Create a Product with and existing category
 (def sports-id (:category/id sports))
@@ -41,7 +41,11 @@
                   :product/price    30M
                   :product/id       (e.model/uuid)
                   :product/category [:category/id sports-id]}
-                 ]))
+                 ] "213.222.111.11"))
 
-(pprint (e.db/all-categories (d/db conn)))
-(e.db/delete-database!)
+(pprint (e.db/all-products (d/db conn)))
+(pprint (e.db/most-expensive-products (d/db conn)))
+(pprint (e.db/products-by-host-ip (d/db conn) "192.168.201.11"))
+(pprint (e.db/products-by-host-ip (d/db conn) "214.231.112.21"))
+(pprint (e.db/products-by-host-ip (d/db conn) "213.222.111.11"))
+;(e.db/delete-database!)
