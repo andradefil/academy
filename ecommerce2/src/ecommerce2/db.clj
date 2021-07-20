@@ -65,6 +65,9 @@
     :db/unique :db.unique/identity}
    ])
 
+(defn create-schema! [conn]
+  (d/transact conn schema) )
+
 ; db is a snapshot of Datomic in a particular point in the time
 ; explicitly pulling attributes
 ;(defn all-products [db]
@@ -151,3 +154,26 @@
 ; Different business logic applies for different entities (i.e schema validation)
 (defn create-categories! [conn categories]
   (d/transact conn categories))
+
+(defn products-and-category-names [db]
+  (d/q '[:find ?name ?category-name
+         :keys product category
+         :where [?product :product/name ?name]
+                [?product :product/category ?category]
+                [?category :category/name ?category-name]] db))
+
+; ?product ---:product/category ----> ?category [Forward navigation]
+;(defn products-by-category-name [db category-name]
+;  (d/q '[:find (pull ?product [:product/name
+;                               :product/slug
+;                               {:product/category [:category/name]}])
+;         :in $ ?name
+;         :where [?category :category/name ?name]
+;                [?product :product/category ?category]] db category-name))
+
+
+; ?category <---:product/category <---- ?product
+(defn products-by-category-name [db category-name]
+  (d/q '[:find (pull ?category [:category/name {:product/_category [:product/name :product/slug]}])
+         :in $ ?name
+         :where [?category :category/name ?name]] db category-name))
