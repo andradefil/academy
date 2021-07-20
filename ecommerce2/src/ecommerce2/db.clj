@@ -63,6 +63,10 @@
     :db/valueType :db.type/uuid
     :db/cardinality :db.cardinality/one
     :db/unique :db.unique/identity}
+   ;Transaction
+   {:db/ident :tx-data/ip
+    :db/valueType :db.type/string
+    :db/cardinality :db.cardinality/one}
    ])
 
 (defn create-schema! [conn]
@@ -148,12 +152,20 @@
   (let [jobs (reduce-to-categorized-product-list catalog-items category)]
     (d/transact conn jobs)))
 
-(defn create-products! [conn products]
-  (d/transact conn products))
+(defn create-products!
+  ([conn products ip]
+   (let [tx-ip [:db/add "datomic.txt" :tx-data/ip ip]]
+     (d/transact conn (conj products tx-ip))))
+  ([conn products]
+   (d/transact conn products)))
 
 ; Different business logic applies for different entities (i.e schema validation)
-(defn create-categories! [conn categories]
-  (d/transact conn categories))
+(defn create-categories!
+  ([conn categories ip]
+   (let [tx-ip [:db/add "datomic.txt" :tx-data/ip ip]]
+     (d/transact conn (conj categories tx-ip))))
+  ([conn categories]
+   (d/transact conn categories)))
 
 (defn products-and-category-names [db]
   (d/q '[:find ?name ?category-name
@@ -193,3 +205,21 @@
          :where [?product :product/price ?price]
                 [?product :product/category ?category]
                 [?category :category/name ?category-name]] db))
+
+
+; 2 queries in series
+;(defn most-expensive-products [db]
+;  (let [max-price (ffirst (d/q '[:find (max ?price)
+;                                :where [?product :product/price ?price]] db))]
+;    (d/q '[:find (pull ?product [*])
+;           :in $ ?price
+;           :where [?product :product/price ?price]] db max-price)))
+
+; in a single nested query
+(defn most-expensive-products [db]
+  (d/q '[:find (pull ?product [*])
+         ; in $ .... will not work, max-price is not a external argument
+         :where [(q '[:find (max ?price)
+                      :where [_ :product/price ?price]] $) [[?max-price]]]
+         [?product :product/price ?max-price]] db))
+
