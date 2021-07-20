@@ -45,7 +45,11 @@
     :db/doc         "The price of a Product with monetary precision"}
    {:db/ident       :product/keyword
     :db/valueType   :db.type/string
-    :db/cardinality :db.cardinality/many}])
+    :db/cardinality :db.cardinality/many}
+   {:db/ident :product/id
+    :db/valueType :db.type/uuid
+    :db/cardinality :db.cardinality/one
+    :db/unique :db.unique/identity}])
 
 ; db is a snapshot of Datomic in a particular point in the time
 ; explicitly pulling attributes
@@ -105,3 +109,6 @@
           :in $ ?keyword
           :where [?product :product/keyword ?keyword]]
         db selected-keyword))
+
+(defn product-by-id [db product-id]
+  (d/pull db '[*] [:product/id product-id]))
