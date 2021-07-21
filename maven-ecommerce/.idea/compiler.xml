@@ -13,5 +13,13 @@
         <module name="service-email" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-kafka" target="11" />
+      <module name="maven-ecommerce" target="11" />
+      <module name="service-email" target="11" />
+      <module name="service-fraud-detector" target="11" />
+      <module name="service-log" target="11" />
+      <module name="service-new-order" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="" />
+    <list default="true" id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/ConsumerFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/ConsumerFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-fraud-detector/src/main/java/com/ecommerce/FraudDetectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-fraud-detector/src/main/java/com/ecommerce/FraudDetectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-fraud-detector/src/main/java/com/ecommerce/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-fraud-detector/src/main/java/com/ecommerce/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-log/src/main/java/com/ecommerce/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-log/src/main/java/com/ecommerce/LogService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +158,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.FraudDetectorService (1)" />
       <item itemvalue="Application.EmailService" />
       <item itemvalue="Application.FraudDetectorService" />
       <item itemvalue="Application.LogService" />
@@ -155,10 +165,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NewOrderDomain" />
         <item itemvalue="Application.LogService" />
-        <item itemvalue="Application.EmailService" />
+        <item itemvalue="Application.NewOrderDomain" />
         <item itemvalue="Application.FraudDetectorService" />
+        <item itemvalue="Application.EmailService" />
       </list>
     </recent_temporary>
   </component>
@@ -183,5 +193,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -26,6 +26,7 @@ public class LogService {
         System.out.println("Log");
         System.out.println(record.key());
         System.out.println(record.value());
+        System.out.println(record.topic());
         System.out.println(record.partition());
         System.out.println(record.offset());
     }

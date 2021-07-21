@@ -12,6 +12,13 @@ public class Order {
         this.orderId = orderId;
         this.amount = amount;
     }
+    boolean isFraud() {
+        return amount.compareTo(new BigDecimal("4500")) >= 0;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 
     @Override
     public String toString() {
