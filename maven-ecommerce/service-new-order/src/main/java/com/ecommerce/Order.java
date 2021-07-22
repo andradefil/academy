@@ -3,12 +3,12 @@ package com.ecommerce;
 import java.math.BigDecimal;
 
 public class Order {
-    private final String userId;
+    private final String email;
     private final String orderId;
     private final BigDecimal amount;
 
-    public Order(String userId, String orderId, BigDecimal amount) {
-        this.userId = userId;
+    public Order(String email, String orderId, BigDecimal amount) {
+        this.email = email;
         this.orderId = orderId;
         this.amount = amount;
     }
@@ -16,7 +16,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "userId='" + userId + '\'' +
+                "email='" + email + '\'' +
                 ", orderId='" + orderId + '\'' +
                 ", amount=" + amount +
                 '}';

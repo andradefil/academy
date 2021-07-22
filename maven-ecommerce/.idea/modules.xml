@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/service-fraud-detector/service-fraud-detector.iml" filepath="$PROJECT_DIR$/service-fraud-detector/service-fraud-detector.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-log/service-log.iml" filepath="$PROJECT_DIR$/service-log/service-log.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-new-order/service-new-order.iml" filepath="$PROJECT_DIR$/service-new-order/service-new-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/users/users.iml" filepath="$PROJECT_DIR$/users/users.iml" />
     </modules>
   </component>
 </project>

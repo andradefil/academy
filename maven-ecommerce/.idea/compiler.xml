@@ -10,6 +10,7 @@
         <module name="common-kafka" />
         <module name="service-fraud-detector" />
         <module name="service-new-order" />
+        <module name="users" />
         <module name="service-email" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="service-fraud-detector" target="11" />
       <module name="service-log" target="11" />
       <module name="service-new-order" target="11" />
+      <module name="users" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
