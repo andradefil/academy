@@ -15,6 +15,7 @@
         <module>service-new-order</module>
         <module>service-log</module>
         <module>users</module>
+        <module>service-http-ecommerce</module>
     </modules>
 
     <properties>
