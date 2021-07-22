@@ -14,7 +14,7 @@ public class NewOrderDomain {
                 var order = new Order(email, orderId, amount);
 
                 var emailContent = "Thank you for your order! We are processing it!";
-                dispatcher.send("ECOMMERCE_NEW_ORDER", orderId, order);
+                dispatcher.send("ECOMMERCE_NEW_ORDER", email, order);
                 dispatcher.send("ECOMMERCE_SEND_EMAIL", orderId, emailContent);
             }
         }
