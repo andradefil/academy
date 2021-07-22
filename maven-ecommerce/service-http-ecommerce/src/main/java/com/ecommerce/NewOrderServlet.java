@@ -1,5 +1,6 @@
 package com.ecommerce;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 
 public class NewOrderServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
         try (var dispatcher = new KafkaDispatcher<>()) {
             var email = req.getParameter("email");
             var amount = new BigDecimal(req.getParameter("amount"));
@@ -27,7 +28,7 @@ public class NewOrderServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_OK);
                 resp.getWriter().println("New order sent!");
             } catch (ExecutionException | InterruptedException | IOException e) {
-                e.printStackTrace();
+                throw new ServletException(e);
             }
         }
     }

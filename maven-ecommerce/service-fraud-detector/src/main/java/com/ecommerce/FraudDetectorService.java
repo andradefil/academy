@@ -20,7 +20,7 @@ public class FraudDetectorService {
         }
     }
 
-    private void parse(ConsumerRecord<String, Order> record) throws ExecutionException, InterruptedException {
+    private void parse(ConsumerRecord<String, Order> record) throws CommonKafkaException {
         System.out.println("------------------------");
         System.out.println("Processing new order, checking for fraud");
         System.out.println(record.key());
@@ -34,12 +34,17 @@ public class FraudDetectorService {
             // igoring because its a simulation
             e.printStackTrace();
         }
-        if(order.isFraud()) {
-            System.out.println("Order is a Fraud");
-            dispatcher.send("ECOMMERCE_ORDER_REJECTED", order.getOrderId(), order);
-        } else {
-            System.out.println("Order was accepted");
-            dispatcher.send("ECOMMERCE_ORDER_APPROVED", order.getOrderId(), order);
+        try {
+            if(order.isFraud()) {
+                System.out.println("Order is a Fraud");
+                dispatcher.send("ECOMMERCE_ORDER_REJECTED", order.getOrderId(), order);
+            } else {
+                System.out.println("Order was accepted");
+                dispatcher.send("ECOMMERCE_ORDER_APPROVED", order.getOrderId(), order);
+            }
+        }
+        catch (ExecutionException | InterruptedException e) {
+            throw new CommonKafkaException(e);
         }
     }
 

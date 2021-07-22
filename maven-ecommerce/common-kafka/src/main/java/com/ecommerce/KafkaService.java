@@ -55,7 +55,9 @@ public class KafkaService<T> implements Closeable {
                 for (var record : records){
                     try {
                         consumerFunction.parse(record);
-                    } catch (ExecutionException | InterruptedException | SQLException e) {
+                    } catch (Exception e) {
+                        // this is a dangerous decision (exception, but we eill do it since its
+                        // a framework to handle it
                         // simple implementation for now just logging
                         e.printStackTrace();
                     }

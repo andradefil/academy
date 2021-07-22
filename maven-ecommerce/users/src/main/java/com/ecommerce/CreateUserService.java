@@ -26,12 +26,16 @@ public class CreateUserService {
         this.users = new Users();
     }
 
-    private void parse(ConsumerRecord<String, Order> record) throws SQLException {
+    private void parse(ConsumerRecord<String, Order> record) throws CommonKafkaException {
         System.out.println("==================================");
         System.out.println("Processing new order, checking for new user");
         var order = record.value();
-        if (users.isNewUser(order.getEmail())){
-            users.insertNewUser(order.getEmail());
+        try {
+            if (users.isNewUser(order.getEmail())){
+                users.insertNewUser(order.getEmail());
+            }
+        }catch (SQLException e) {
+            throw new CommonKafkaException(e);
         }
     }
 }
