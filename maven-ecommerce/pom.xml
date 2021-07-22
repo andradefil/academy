@@ -14,8 +14,9 @@
         <module>service-fraud-detector</module>
         <module>service-new-order</module>
         <module>service-log</module>
-        <module>users</module>
+        <module>service-users</module>
         <module>service-http-ecommerce</module>
+        <module>service-reading-report</module>
     </modules>
 
     <properties>

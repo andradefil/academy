@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="" />
+    <list default="true" id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/service-reading-report/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-reading-report/service-reading-report.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/IO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/ReadingReportingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/resources/report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +73,7 @@
   <component name="RunManager" selected="Application.HttpEcommerceService">
     <configuration name="CreateUserService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ecommerce.CreateUserService" />
-      <module name="users" />
+      <module name="service-users" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ecommerce.*" />
