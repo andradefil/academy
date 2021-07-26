@@ -1,0 +1,6 @@
+com/ecommerce/CommonKafkaException.class
+com/ecommerce/ConsumerFunction.class
+com/ecommerce/GsonSerializer.class
+com/ecommerce/KafkaDispatcher.class
+com/ecommerce/GsonDeserializer.class
+com/ecommerce/KafkaService.class

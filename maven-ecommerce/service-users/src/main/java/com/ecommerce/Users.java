@@ -3,6 +3,8 @@ package com.ecommerce;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Users {
@@ -36,5 +38,14 @@ public class Users {
         statement.setString(2, email);
         statement.execute();
         System.out.println("User " + email + " inserted");
+    }
+
+    public List<User> all() throws SQLException {
+        var results = connection.prepareStatement("select uuid, email from Users").executeQuery();
+        List<User> users = new ArrayList<>();
+        while(results.next()) {
+            users.add(new User(results.getString(1), results.getString(2)));
+        }
+        return users;
     }
 }

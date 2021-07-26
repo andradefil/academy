@@ -13,7 +13,7 @@ public class ReadingReportingService {
     public static void main(String[] args) {
         var readingReportingService = new ReadingReportingService();
         try (var service = new KafkaService<>(ReadingReportingService.class.getSimpleName(),
-                "ECOMMERCE_NEW_ORDER",
+                "ECOMMERCE_USER_GENERATE_READING_REPORT",
                 readingReportingService::parse,
                 User.class,
                 Map.of()

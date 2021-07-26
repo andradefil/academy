@@ -4,47 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-reading-report/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-reading-report/service-reading-report.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/IO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/ReadingReportingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-reading-report/src/main/resources/report.txt" afterDir="false" />
+    <list default="true" id="fa4cbe29-66a3-46f9-9c5a-5704b111b038" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ClojureProjectResolveSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-http-ecommerce/src/main/java/com/ecommerce/GenerateAllReportsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/BatchSendMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/common-kafka.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-ecommerce.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-email/service-email.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-fraud-detector/service-fraud-detector.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-http-ecommerce/service-http-ecommerce.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-http-ecommerce/src/main/java/com/ecommerce/HttpEcommerceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-http-ecommerce/src/main/java/com/ecommerce/HttpEcommerceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-log/service-log.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-new-order/service-new-order.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-reading-report/service-reading-report.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/ReadingReportingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-reading-report/src/main/java/com/ecommerce/ReadingReportingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/Users.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Kotlin Class" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1vcvxLzJ5CyVBL0il3RvIRVugeh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1vqxDI10zqY56EDDvgjooXxm5YU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,103 +43,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/service-log/src/main/java" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.ecommerce" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.ecommerce" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.ecommerce" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.HttpEcommerceService">
-    <configuration name="CreateUserService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.CreateUserService" />
-      <module name="service-users" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmailService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.EmailService" />
-      <module name="service-email" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FraudDetectorService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.FraudDetectorService" />
-      <module name="service-fraud-detector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FraudDetectorService" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.FraudDetectorService" />
-      <module name="service-fraud-detector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HttpEcommerceService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.HttpEcommerceService" />
-      <module name="service-http-ecommerce" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.LogService" />
-      <module name="service-log" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="displayName" value="" />
       <setting name="replType" value="NREPL" />
@@ -172,31 +69,15 @@
       <setting name="fixLineNumbers" value="false" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.EmailService" />
-      <item itemvalue="Application.LogService" />
-      <item itemvalue="Application.CreateUserService" />
-      <item itemvalue="Application.HttpEcommerceService" />
-      <item itemvalue="Application.FraudDetectorService" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.HttpEcommerceService" />
-        <item itemvalue="Application.FraudDetectorService" />
-        <item itemvalue="Application.EmailService" />
-        <item itemvalue="Application.CreateUserService" />
-        <item itemvalue="Application.LogService" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3e4eda00-b18d-4cfc-bdc3-894f1cc287ef" name="Default Changelist" comment="" />
-      <created>1626874438999</created>
+      <changelist id="fa4cbe29-66a3-46f9-9c5a-5704b111b038" name="Default Changelist" comment="" />
+      <created>1627303300759</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1626874438999</updated>
+      <updated>1627303300759</updated>
     </task>
     <servers />
   </component>
@@ -210,6 +91,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

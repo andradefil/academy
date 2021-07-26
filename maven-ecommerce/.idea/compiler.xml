@@ -12,8 +12,8 @@
         <module name="service-new-order" />
         <module name="service-reading-report" />
         <module name="service-fraud-detector" />
+        <module name="users" />
         <module name="service-email" />
-        <module name="service-users" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,7 +25,7 @@
       <module name="service-log" target="11" />
       <module name="service-new-order" target="11" />
       <module name="service-reading-report" target="11" />
-      <module name="service-users" target="11" />
+      <module name="users" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
