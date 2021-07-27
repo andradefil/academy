@@ -35,6 +35,7 @@ public class BatchSendMessageService {
             for (User user : users.all()) {
                 try {
                     dispatcher.send(topic, user.getUuid(), user);
+                    System.out.println("Processing for user " + user);
                 } catch (ExecutionException | InterruptedException e) {
                     // i am just skipping the user
                     e.printStackTrace();
