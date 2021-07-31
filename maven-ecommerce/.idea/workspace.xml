@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa4cbe29-66a3-46f9-9c5a-5704b111b038" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/CorrelationId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-reading-report/src/main/resources/report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service-reading-report/src/main/resources/report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-reading-report/target/classes/report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service-reading-report/target/classes/report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/BatchSendMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/BatchSendMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-users/src/main/java/com/ecommerce/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaDispatcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,8 +48,14 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Application.ReadingReportingService">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ecommerce" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HttpEcommerceService">
     <configuration name="BatchSendMessageService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ecommerce.BatchSendMessageService" />
       <module name="users" />
@@ -142,11 +154,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HttpEcommerceService" />
+        <item itemvalue="Application.LogService" />
         <item itemvalue="Application.ReadingReportingService" />
         <item itemvalue="Application.BatchSendMessageService" />
         <item itemvalue="Application.CreateUserService" />
-        <item itemvalue="Application.LogService" />
-        <item itemvalue="Application.HttpEcommerceService" />
       </list>
     </recent_temporary>
   </component>

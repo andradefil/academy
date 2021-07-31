@@ -8,7 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 public class KafkaDispatcher<T> implements Closeable {
-    private final KafkaProducer<String, T> producer;
+    private final KafkaProducer<String, Message<T>> producer;
 
     KafkaDispatcher() {
         this.producer = new KafkaProducer<>(producerProperties());
@@ -33,9 +33,10 @@ public class KafkaDispatcher<T> implements Closeable {
         };
     }
 
-    public void send(String topic, String key, T value) throws ExecutionException, InterruptedException {
-        var record = new ProducerRecord<>(topic, key, value);
-        this.producer.send(record, getCallback()).get();
+    public void send(String topic, String key, T payload) throws ExecutionException, InterruptedException {
+        var message = new Message<>(new CorrelationId(), payload);
+        var record = new ProducerRecord<>(topic, key, message);
+        this.producer.send(record, getCallback());
     }
 
     @Override
