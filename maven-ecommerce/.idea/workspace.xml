@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa4cbe29-66a3-46f9-9c5a-5704b111b038" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/CorrelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/KafkaDispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/GsonDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/GsonDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,7 @@
       <recent name="com.ecommerce" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HttpEcommerceService">
+  <component name="RunManager" selected="Application.FraudDetectorService">
     <configuration name="BatchSendMessageService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ecommerce.BatchSendMessageService" />
       <module name="users" />
@@ -69,9 +68,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateUserService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ecommerce.CreateUserService" />
-      <module name="users" />
+    <configuration name="FraudDetectorService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ecommerce.FraudDetectorService" />
+      <module name="service-fraud-detector" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ecommerce.*" />
@@ -147,18 +146,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.BatchSendMessageService" />
-      <item itemvalue="Application.CreateUserService" />
       <item itemvalue="Application.HttpEcommerceService" />
       <item itemvalue="Application.LogService" />
       <item itemvalue="Application.ReadingReportingService" />
+      <item itemvalue="Application.FraudDetectorService" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FraudDetectorService" />
         <item itemvalue="Application.HttpEcommerceService" />
         <item itemvalue="Application.LogService" />
         <item itemvalue="Application.ReadingReportingService" />
         <item itemvalue="Application.BatchSendMessageService" />
-        <item itemvalue="Application.CreateUserService" />
       </list>
     </recent_temporary>
   </component>

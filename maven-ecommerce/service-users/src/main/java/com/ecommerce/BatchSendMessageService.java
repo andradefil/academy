@@ -13,7 +13,6 @@ public class BatchSendMessageService {
                 CreateUserService.class.getSimpleName(),
                 "ECOMMERCE_SEND_MESSAGE_FOR_EVERY_USER",
                 batchSendMessageService::parse,
-                String.class,
                 Map.of()
         )) {
             service.run();
