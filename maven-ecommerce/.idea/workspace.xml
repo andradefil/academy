@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fa4cbe29-66a3-46f9-9c5a-5704b111b038" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/GsonDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/GsonDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common-kafka/src/main/java/com/ecommerce/MessageAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
