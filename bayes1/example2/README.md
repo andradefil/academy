@@ -6,6 +6,5 @@ The marks will depend on:
 * Marks -> admitted (a) to a university
 * The IQ -> aptitude score(s) of the student
 
-                          ```puml
-A -> B
-                          ```
+
+[example](./example.png)
