@@ -26,6 +26,7 @@ As colunas são referente a ACAMPAMENTO, TEMPESTADE, FOGO, NÃO FOGO
 Tabela condicional [[True, True, 0.8, 0.2], [True, False, 0.2, 0.8], [False, True, 0.3, 0.7], [False, False, 0.2, 0.8]]
 Probabilidade de acampamento [0.1]
 Probabilidade de tempestade [0.2]
+
 *===> Probabilidade de tempestade 0.06400000000000002*
 
 Referencias:
