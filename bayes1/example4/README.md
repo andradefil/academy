@@ -29,10 +29,12 @@ Probabilidade de tempestade [0.2]
 
 *===> Probabilidade de tempestade 0.06400000000000002*
 
+```
 Referencias:
 
 https://www.youtube.com/watch?v=3dVEliviEwY&ab_channel=FernandoJ.VonZuben
 https://www.python-course.eu/graphs_python.php
 https://www.w3schools.com/python/python_classes.asp
 https://pomegranate.readthedocs.io/en/latest/BayesianNetwork.html
+```
 
