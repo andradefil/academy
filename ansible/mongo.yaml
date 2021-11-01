@@ -1,0 +1,29 @@
+---
+- name: Download MongoDB repository and install MongoDB
+  hosts: mongo
+  become: true
+  
+  tasks:
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+      
+    - name: Add Mongo repository
+      yum_repository:
+        name: mongodb-org-5.0
+        description: MongoDB Repository Repo
+        baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
+        gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
+    
+    - name: Install MongoDB
+      yum: 
+        name: mongodb-org
+        state: present
+        update_cache: yes
+
+    - name: Enable MongoDB to run on boot
+      service: 
+        name: mongod 
+        enabled: yes
+        state: started
