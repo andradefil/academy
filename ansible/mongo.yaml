@@ -1,6 +1,6 @@
 ---
 - name: Download MongoDB repository and install MongoDB
-  hosts: mongo
+  hosts: localhost
   become: true
   
   tasks:
